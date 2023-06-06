@@ -5,6 +5,11 @@ export const Colors = {
 	containerBgColor: '#231345',
 	headerBgColor: '#982912',
 	listBgColor: '#74396',
+	btnSalvar: '#44bd32',
+	btnCancelRmv: '#c23616',
+	btnEdit: '#777',
+	bgScrlBar: '#982912',
+	bgScrlBar2: 'black',
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -26,11 +31,11 @@ export const GlobalStyle = createGlobalStyle`
 		}
 
 		*::-webkit-scrollbar-track {
-		background: #982912;
+		background: ${Colors.bgScrlBar};
 		}	
 
 		*::-webkit-scrollbar-thumb {
-		background-color: blue;
+		background-color: ${Colors.bgScrlBar2};
 		border-radius: 20px;
 		border: 3px solid orange;
 		}

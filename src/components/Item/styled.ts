@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Colors } from '../../styles';
 
 export const Item = styled.li`
 	display: inline-block;
@@ -8,6 +9,10 @@ export const Item = styled.li`
 	border: 1px solid black;
 	line-height: 24px;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+	textarea {
+		resize: none;
+		height: 20px;
+	}
 `;
 
 export const ContainerBtn = styled.div`
@@ -15,10 +20,22 @@ export const ContainerBtn = styled.div`
 	margin: 10px 0;
 	border-top: 1px solid black;
 	width: 100%;
+`;
 
-	button {
-		padding: 10px;
-		margin: 20px 2px 0;
-		cursor: pointer;
-	}
+export const Botao = styled.button`
+	padding: 10px;
+	margin: 20px 2px 0;
+	cursor: pointer;
+	background-color: ${Colors.btnEdit};
+	border: 1px solid black;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+	font-weight: bold;
+`;
+
+export const BotaoSalvar = styled(Botao)`
+	background-color: ${Colors.btnSalvar};
+`;
+
+export const BotaoCancelRmv = styled(Botao)`
+	background-color: ${Colors.btnCancelRmv};
 `;

@@ -1,41 +1,96 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import * as S from './styled';
+import Contato from '../../models/Contato';
+import { removerContato, salvarContato } from '../../store/reducers/contatos';
 
-type Props = {
-	id: number;
-	nome: string;
-	email: string;
-	telefone: number;
-};
+type Props = Contato;
 
-const Item = ({ id, nome, email, telefone }: Props) => {
+const Item = ({
+	id,
+	nome: nomeInicial,
+	email: emailInicial,
+	telefone: telefoneInicial,
+}: Props) => {
+	const dispatch = useDispatch();
 	const [editando, setEditando] = useState(false);
+	const [nome, setNome] = useState(nomeInicial);
+	const [email, setEmail] = useState(emailInicial);
+	const [telefone, setTelefone] = useState(telefoneInicial);
+
+	const salvarEdicao = () => {
+		setEditando(false);
+		dispatch(
+			salvarContato({
+				id,
+				nome,
+				email,
+				telefone,
+			})
+		);
+	};
+
+	const cancelarEdicao = () => {
+		setNome(nomeInicial);
+		setEditando(false);
+	};
 
 	return (
 		<S.Item>
 			<p>
-				Contato: <span>{nome}</span>
+				<b>Contato: </b>{' '}
+				{editando ? (
+					<textarea
+						value={nome}
+						onChange={(event) => setNome(event.target.value)}
+					/>
+				) : (
+					<span>{nome}</span>
+				)}
 			</p>
 			<p>
-				Email: <span>{email}</span>
+				<b>Email:</b>
+				{editando ? (
+					<textarea
+						value={email}
+						onChange={(event) => setEmail(event.target.value)}
+					/>
+				) : (
+					<span>{email}</span>
+				)}
 			</p>
 			<p>
-				Telefone:<span>{telefone}</span>
+				<b>Telefone:</b>
+				{editando ? (
+					<textarea
+						value={telefone}
+						onChange={(event) => setTelefone(event.target.value)}
+					/>
+				) : (
+					<span>{telefone}</span>
+				)}
 			</p>
 			<S.ContainerBtn>
 				{editando ? (
 					<>
-						<button>Salvar</button>
-						<button onClick={() => setEditando(false)}>
+						<S.BotaoSalvar onClick={() => salvarEdicao()}>
+							Salvar
+						</S.BotaoSalvar>
+						<S.BotaoCancelRmv onClick={() => cancelarEdicao()}>
 							Cancelar
-						</button>
+						</S.BotaoCancelRmv>
 					</>
 				) : (
 					<>
-						<button onClick={() => setEditando(true)}>
+						<S.Botao onClick={() => setEditando(true)}>
 							Editar
-						</button>
-						<button>Remover</button>
+						</S.Botao>
+						<S.BotaoCancelRmv
+							onClick={() => dispatch(removerContato(id))}
+						>
+							Remover
+						</S.BotaoCancelRmv>
 					</>
 				)}
 			</S.ContainerBtn>
@@ -44,3 +99,5 @@ const Item = ({ id, nome, email, telefone }: Props) => {
 };
 
 export default Item;
+
+// #c23616 Botão cancelar;  #44bd32 Botão salvar;
