@@ -1,18 +1,29 @@
 import { Provider } from 'react-redux';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { Container, GlobalStyle } from './styles';
-import Header from './components/Header';
-import List from './components/List';
 
 import store from './store';
+import Home from './pages/Home';
+import Cadastro from './pages/Cadastro';
+
+const rotas = createBrowserRouter([
+	{
+		path: '/',
+		element: <Home />,
+	},
+	{
+		path: '/novo',
+		element: <Cadastro />,
+	},
+]);
 
 function App() {
 	return (
 		<Provider store={store}>
 			<GlobalStyle />
 			<Container>
-				<Header />
-				<List />
+				<RouterProvider router={rotas} />
 			</Container>
 		</Provider>
 	);

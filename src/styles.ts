@@ -10,6 +10,8 @@ export const Colors = {
 	btnEdit: '#777',
 	bgScrlBar: '#982912',
 	bgScrlBar2: 'black',
+	bgBotao: '#44bd32',
+	fonteBotao: '#fff',
 };
 
 export const GlobalStyle = createGlobalStyle`

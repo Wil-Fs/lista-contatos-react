@@ -52,8 +52,20 @@ const contatosSlice = createSlice({
 				state.items[indexContato] = action.payload;
 			}
 		},
+		cadastrarContato: (state, action: PayloadAction<Contato>) => {
+			const contatoExiste = state.items.find(
+				(contato) =>
+					contato.id === action.payload.id ||
+					contato.email === action.payload.email
+			);
+
+			contatoExiste
+				? alert('Já existe um contato cadastrado com este email')
+				: state.items.push(action.payload);
+		},
 	},
 });
 
-export const { removerContato, salvarContato } = contatosSlice.actions;
+export const { removerContato, salvarContato, cadastrarContato } =
+	contatosSlice.actions;
 export default contatosSlice.reducer;
