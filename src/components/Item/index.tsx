@@ -50,7 +50,7 @@ const Item = ({
 				)}
 			</p>
 			<p>
-				<b>Email:</b>
+				<b>Email: </b>
 				{editando ? (
 					<textarea
 						value={email}
@@ -61,7 +61,7 @@ const Item = ({
 				)}
 			</p>
 			<p>
-				<b>Telefone:</b>
+				<b>Telefone: </b>
 				{editando ? (
 					<textarea
 						value={telefone}

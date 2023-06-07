@@ -9,9 +9,18 @@ export const Item = styled.li`
 	border: 1px solid black;
 	line-height: 24px;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+	background-color: ${Colors.listBgColor};
+
+	span {
+		color: ${Colors.fontColorItem};
+	}
+
 	textarea {
 		resize: none;
 		height: 20px;
+		background-color: ${Colors.bgColorTextArea};
+		color: ${Colors.colorFonteTextArea};
+		border: none;
 	}
 `;
 
@@ -30,6 +39,7 @@ export const Botao = styled.button`
 	border: 1px solid black;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 	font-weight: bold;
+	color: ${Colors.fontBtnItem};
 `;
 
 export const BotaoSalvar = styled(Botao)`

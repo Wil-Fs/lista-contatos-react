@@ -23,6 +23,9 @@ export const Form = styled.form`
 		padding: 8px;
 		margin-bottom: 4px;
 		width: 100%;
+		color: ${Colors.fonteInputCadastro};
+		background-color: ${Colors.bgInputCadastro};
+		border: none;
 	}
 `;
 
@@ -42,6 +45,14 @@ export const BtnForm = styled(Link)`
 	margin-bottom: 4px;
 	color: ${Colors.btnFonteCadastro};
 	background-color: ${Colors.bgBtnCadastro};
+
+	:hover {
+		background-color: ${Colors.hoverBtnCadastro1};
+	}
 `;
 
-export const Button = styled(BtnForm)``;
+export const Button = styled(BtnForm)`
+	:hover {
+		background-color: ${Colors.hoverBtnCadastro2};
+	}
+`;
