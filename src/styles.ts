@@ -3,15 +3,18 @@ import { styled, createGlobalStyle } from 'styled-components';
 export const Colors = {
 	mainBgColor: '#000',
 	containerBgColor: '#231345',
-	headerBgColor: '#982912',
-	listBgColor: '#74396',
+	headerBgColor: '#231345',
+	listBgColor: '#742396',
 	btnSalvar: '#44bd32',
 	btnCancelRmv: '#c23616',
 	btnEdit: '#777',
-	bgScrlBar: '#982912',
+	bgScrlBar: '#231345',
 	bgScrlBar2: 'black',
-	bgBotao: '#44bd32',
+	bgBotao: '#231345',
 	fonteBotao: '#fff',
+	bgBtnCadastro: '#898127',
+	btnBorderCadastro: '#099835',
+	btnFonteCadastro: '#873447',
 };
 
 export const GlobalStyle = createGlobalStyle`

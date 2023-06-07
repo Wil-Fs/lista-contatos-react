@@ -1,8 +1,17 @@
 import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import InputMask from 'react-input-mask';
+
 import Contato from '../../models/Contato';
 import { cadastrarContato } from '../../store/reducers/contatos';
-import { Container, Title, Form as SForm, BtnVoltar, Button } from './styled';
+import {
+	Container,
+	Title,
+	Form as SForm,
+	BtnForm,
+	Button,
+	DivInputs,
+} from './styled';
 
 const Form = () => {
 	const [nome, setNome] = useState('');
@@ -21,7 +30,6 @@ const Form = () => {
 		);
 
 		dispatch(cadastrarContato(contatoParaAdicionar));
-		alert('Contato cadastrado com sucesso');
 		setNome('');
 		setEmail('');
 		setTelefone('');
@@ -30,27 +38,32 @@ const Form = () => {
 	return (
 		<Container>
 			<Title>Novo contato</Title>
-			<SForm onSubmit={cadastrar}>
-				<input
-					type="text"
-					placeholder="Nome"
-					value={nome}
-					onChange={({ target }) => setNome(target.value)}
-				/>
-				<input
-					type="email"
-					placeholder="email@exemplo.com"
-					value={email}
-					onChange={({ target }) => setEmail(target.value)}
-				/>
-				<input
-					type="tel"
-					placeholder="(xx) xxxxx-xxxx"
-					value={telefone}
-					onChange={({ target }) => setTelefone(target.value)}
-				/>
-				<Button type="submit">Salvar</Button>
-				<BtnVoltar to="/">Voltar</BtnVoltar>
+			<SForm>
+				<DivInputs>
+					<input
+						type="text"
+						placeholder="Nome"
+						value={nome}
+						onChange={({ target }) => setNome(target.value)}
+					/>
+					<input
+						type="email"
+						placeholder="email@exemplo.com"
+						value={email}
+						onChange={({ target }) => setEmail(target.value)}
+					/>
+					<InputMask
+						mask="(99) 99999-9999"
+						type="tel"
+						placeholder="(xx) xxxxx-xxxx"
+						value={telefone}
+						onChange={({ target }) => setTelefone(target.value)}
+					/>
+				</DivInputs>
+				<Button to="" onClick={cadastrar}>
+					Salvar
+				</Button>
+				<BtnForm to="/">Voltar</BtnForm>
 			</SForm>
 		</Container>
 	);

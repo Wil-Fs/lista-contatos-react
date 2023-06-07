@@ -11,25 +11,25 @@ const initialState: ContatosState = {
 			id: Math.round(Math.random() * 10000),
 			nome: 'Wil',
 			email: 'will@gmail.com',
-			telefone: '6288312344',
+			telefone: '(14) 12412-4124',
 		},
 		{
 			id: Math.round(Math.random() * 10000),
 			nome: 'Vi',
 			email: 'Vi@gmail.com',
-			telefone: '6288312344',
+			telefone: '(14) 12412-4124',
 		},
 		{
 			id: Math.round(Math.random() * 10000),
 			nome: 'Mamis',
 			email: 'Mamis@gmail.com',
-			telefone: '6288312344',
+			telefone: '(14) 12412-4124',
 		},
 		{
 			id: Math.round(Math.random() * 10000),
 			nome: 'Mimi',
 			email: 'Mimi@gmail.com',
-			telefone: '6288312344',
+			telefone: '(14) 12412-4124',
 		},
 	],
 };
@@ -61,7 +61,8 @@ const contatosSlice = createSlice({
 
 			contatoExiste
 				? alert('Já existe um contato cadastrado com este email')
-				: state.items.push(action.payload);
+				: (state.items.push(action.payload),
+				  alert('Contato cadastrado com sucesso'));
 		},
 	},
 });

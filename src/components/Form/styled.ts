@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
+import { Colors } from '../../styles';
 
 export const Container = styled.div`
 	width: 100%;
@@ -25,20 +26,22 @@ export const Form = styled.form`
 	}
 `;
 
-export const Button = styled.button`
-	margin-top: 10px;
-	padding: 8px;
-	margin-right: 4px;
-	background-color: #fff;
-	border-radius: 2px;
-	border: 1px solid #ccc;
+export const DivInputs = styled.div`
+	margin-bottom: 20px;
 `;
 
-export const BtnVoltar = styled(Link)`
-	margin-top: 10px;
-	padding: 8px;
+export const BtnForm = styled(Link)`
+	display: flex;
+	padding: 10px;
 	margin-right: 4px;
-	background-color: #fff;
 	border-radius: 2px;
-	border: 1px solid #ccc;
+	border: 1px solid ${Colors.btnBorderCadastro};
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 4px;
+	color: ${Colors.btnFonteCadastro};
+	background-color: ${Colors.bgBtnCadastro};
 `;
+
+export const Button = styled(BtnForm)``;
